@@ -101,7 +101,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i):
                 thumb_path=thumbnail(sender)
                 await client.send_document(
                     sender,
-                    file, 
+                    , 
                     caption=caption,
                     thumb=thumb_path,
                     progress=progress_for_pyrogram,
@@ -113,6 +113,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i):
                     )
                 )
             await edit.delete()
+            os.remove(file)
         except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
             await client.edit_message_text(sender, edit_id, "Have you joined the channel?")
             return 
