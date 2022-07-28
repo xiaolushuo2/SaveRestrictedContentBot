@@ -101,7 +101,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i):
                 thumb_path=thumbnail(sender)
                 await client.send_document(
                     sender,
-                    , 
+                    file, 
                     caption=caption,
                     thumb=thumb_path,
                     progress=progress_for_pyrogram,
